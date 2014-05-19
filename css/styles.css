@@ -1,0 +1,98 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - 
+GLOBAL FIXES
+- - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* box-sizing applied to a universal selector changes the box model so that border and padding cut into the height/width of the box rather than expanding it. Explanation here: http://css-tricks.com/box-sizing/ */
+* {
+   -webkit-box-sizing: border-box; 
+   -moz-box-sizing: border-box; 
+   box-sizing: border-box;
+}
+
+/* Add the "group" class to a container element to contain it's floats (without needing to specify a fixed height). See: http://nicolasgallagher.com/micro-clearfix-hack. If you need a quick refresher on working with floats I recommend reading: http://css-tricks.com/all-about-floats. */
+.group:before,
+.group:after {
+   content:"";
+   display:table;
+}
+.group:after {
+   clear:both;
+}
+.group {
+   zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - 
+MOBILE-FIRST STYLING BEGINS HERE
+- - - - - - - - - - - - - - - - - - - - - - - - */
+
+body {
+   font-family: Helvetica, Arial, sans-serif;
+   font-size: 100%;
+   line-height: 1.5;
+   background: #00d9f8;
+   background: #0ec996;
+   background: #00b892;
+   background: #f0efd8;
+   color: #002e35;
+}
+
+section {
+   font-size: 1.5em;
+   line-height: 1.4em;
+   font-weight: bold;
+   padding: 1em;
+   /*background: #00d9f8;*/
+   -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+           transition: all 0.4s ease-in-out;
+}
+
+section p {
+   margin-top: 0;
+}
+
+img {
+   display: block;
+   margin: auto;
+   max-width: 9em;
+}
+
+a {
+   color: white;
+   color: #00b892;
+   text-decoration: none;
+}
+a:hover {
+   color: #009ec0;
+   color: #fdff56;
+   color: #a6d000;
+   color: #e9872e;
+   /*text-decoration: underline;*/
+}
+
+@media screen and (min-width: 32em) {
+   section {
+      font-size: 1.8em;
+      line-height: 1.3em;
+   }
+}
+
+@media screen and (min-width: 48em) {
+   section {
+      font-size: 2.7em;
+      line-height: 1.2em;
+   }
+   img {
+      max-width: 7em;
+   }
+}
+
+@media screen and (min-width: 70em) {
+   section {
+      font-size: 4em;
+      line-height: 1.1em;
+   }
+}
