@@ -1,4 +1,0 @@
-jhepner.github.io
-=================
-
-designacquisition
